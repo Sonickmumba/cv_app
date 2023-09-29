@@ -1,9 +1,9 @@
-// import React from 'react'
+import React from 'react'
 
-// const GeneralInfo = () => {
-//   return (
-//     <div>GeneralInfo</div>
-//   )
-// }
+const GeneralInfo = () => {
+  return (
+    <div>GeneralInfo</div>
+  )
+}
 
-// export default GeneralInfo
+export default GeneralInfo
