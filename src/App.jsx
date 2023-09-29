@@ -16,6 +16,7 @@ function App() {
           {count}
         </button>
       </div>
+      <Heade />
       <EducationExp />
       <GeneralInfo />
       <PracticalExp />
