@@ -20,9 +20,9 @@ const GeneralInfo = () => {
           <>
             <form onSubmit={(e) => {e.preventDefault(), setSubmit(true)}} >
               <div className="input-div">
-                <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-                <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
-                <input type="number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
+                <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+                <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}  required />
+                <input type="number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} required />
               </div>
               <button className="submit-button" type='submit'>Submit</button>
             </form>
