@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import EducationExp from './components/EducationExp';
-import GeneralInfo from './components/GeneralInfo';
+import GeneralInfo from './components/generalInfo/GeneralInfo';
 import PracticalExp from './components/PracticalExp';
 import Header from './components/Header';
 
