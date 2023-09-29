@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import './App.css';
-import EducationExp from './components/EducationExp';
+import EducationExp from './components/educationExp/EducationExp';
 import GeneralInfo from './components/generalInfo/GeneralInfo';
-import PracticalExp from './components/PracticalExp';
-import Header from './components/Header';
+// import PracticalExp from './components/PracticalExp';
+// import Header from './components/Header';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -12,7 +12,7 @@ function App() {
     <>
       <div className="card">
         {/* <Header /> */}
-        {/* <EducationExp /> */}
+        <EducationExp />
         <GeneralInfo />
         {/* <PracticalExp /> */}
       </div>
