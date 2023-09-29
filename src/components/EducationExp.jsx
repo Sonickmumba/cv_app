@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const EducationExp = () => {
-  return (
-    <div>EducationExp</div>
-  )
-}
+const EducationExp = () => (
+  <div>EducationExp</div>
+);
 
-export default EducationExp
+export default EducationExp;
