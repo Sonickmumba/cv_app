@@ -11,15 +11,10 @@ function App() {
   return (
     <>
       <div className="card">
-        <button type="button" onClick={() => setCount((count) => count + 1)}>
-          count is
-          {' '}
-          {count}
-        </button>
-        <Header />
-        <EducationExp />
+        {/* <Header /> */}
+        {/* <EducationExp /> */}
         <GeneralInfo />
-        <PracticalExp />
+        {/* <PracticalExp /> */}
       </div>
     </>
   );

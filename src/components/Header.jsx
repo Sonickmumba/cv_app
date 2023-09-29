@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => (
   <nav className='header-app-nav-wrapper'>
-    <div>Hey you are welcome</div>
+    <span>Hey you are welcome</span>
   </nav>
 );
 

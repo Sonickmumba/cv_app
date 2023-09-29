@@ -11,14 +11,19 @@ const GeneralInfo = () => {
     <div className="container">
       <div className="info-section">
         {submit ? (
-          <><>
-            <div>{name}</div>
-            <div>{email}</div>
-            <div>{phoneNumber}</div>
-          </><button className="edit-button" type='submit' onClick={() => { setSubmit(false) } }>Edit</button></>
+          <>
+            <div className="display-main-container">
+              <div className="display-div">
+                <div>{name}</div>
+                <div>{email}</div>
+                <div>{phoneNumber}</div>
+              </div>
+              <button className="edit-button" type='submit' onClick={() => { setSubmit(false) } }>Edit</button>
+            </div>
+          </>
         ) : (
           <>
-            <form onSubmit={(e) => {e.preventDefault(), setSubmit(true)}} >
+            <form className="form-container" onSubmit={(e) => {e.preventDefault(), setSubmit(true)}} >
               <div className="input-div">
                 <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
                 <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}  required />
@@ -29,9 +34,8 @@ const GeneralInfo = () => {
           </>
         )}
       </div>
-      <p>sonick</p>
     </div>
   );
-};
+}
 
 export default GeneralInfo;
