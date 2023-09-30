@@ -1,45 +1,77 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../../App.css';
 
-const GeneralInfo = () => {
-  const [name, setName] = useState('');
-  const [position, setPosition] = useState('');
-  const [date, setDate] = useState('');
-  const [submit, setSubmit] = useState(true);
+const EducationExp = () => {
+  const [submits, setSubmits] = useState(true);
+
+  const [practicalExp, setPracticalExp] = useState({
+    name: 'ABC BANK',
+    position: 'Teller',
+    date: '2009-07-20',
+  });
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setPracticalExp({
+      ...practicalExp,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newPracticalInfo = {
+      id: new Date().getTime(),
+      schoolName: practicalExp.schoolName,
+      titleStudy: practicalExp.titleStudy,
+      date: practicalExp.date,
+    };
+    localStorage.setItem('educationInfo', JSON.stringify(newPracticalInfo));
+    setSubmits(true);
+  };
+  
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem('educationInfo')) || [];
+    if (data.length > 0) {
+      const latestData = data[data.length - 1];
+      setPracticalExp(latestData);
+    }
+  }, [submits]);
 
   return (
     <div className="container">
       <div className="info-section">
-        {submit ? (
+        {submits ? (
           <>
             <div className="display-main-container">
               <p className="title-p">Practical Information</p>
-              <div className="display-div">
+              <div className="display-div" key={practicalExp.id}>
                 <div id="info">
                   Name:
-                  {name}
+                  {practicalExp.name}
                 </div>
                 <div className="info">
                   Position:
-                  {position}
+                  {practicalExp.position}
                 </div>
                 <div className="info">
                   Date:
-                  {date}
+                  {practicalExp.date}
                 </div>
               </div>
-              <button className="edit-button" type="submit" onClick={() => { setSubmit(false); }}>Edit</button>
+              <button className="edit-button" type="submit" onClick={() => { setSubmits(false) }}>Edit</button>
             </div>
           </>
         ) : (
           <>
-            <form className="form-container" onSubmit={() => { setSubmit(true); }}>
+            <form className="form-container" onSubmit={handleSubmit}>
               <div className="input-div">
-                <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" required />
-                <input type="text" value={position} onChange={(e) => setPosition(e.target.value)} placeholder="Position" required />
-                <input type="date" value={date} onChange={(e) => setDate(e.target.value)} placeholder="Date" required />
+                <input type="text" name="name" value={practicalExp.name} onChange={handleChange} required />
+                <input type="text" name="position" value={practicalExp.position} onChange={handleChange} required />
+                <input type="date" name="date" value={practicalExp.date} onChange={handleChange} required />
               </div>
-              <button className="submit-button" type="submit">Submit</button>
+              <button className="submit-button" type="submit" onClick={() => { setSubmits(false) }}>Submit</button>
             </form>
           </>
         )}
@@ -48,4 +80,4 @@ const GeneralInfo = () => {
   );
 };
 
-export default GeneralInfo;
+export default EducationExp;
