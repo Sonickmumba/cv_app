@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import '../../App.css'
+import { useState } from 'react';
+import '../../App.css';
 
 const GeneralInfo = () => {
   const [name, setName] = useState('');
@@ -15,29 +15,37 @@ const GeneralInfo = () => {
             <div className="display-main-container">
               <p className="title-p">Practical Information</p>
               <div className="display-div">
-                <div id="info">Name: {name}</div>
-                <div className="info">Position: {position}</div>
-                <div className="info">Date: {date}</div>
+                <div id="info">
+                  Name:
+                  {name}
+                </div>
+                <div className="info">
+                  Position:
+                  {position}
+                </div>
+                <div className="info">
+                  Date:
+                  {date}
+                </div>
               </div>
-              <button className="edit-button" type='submit' onClick={() => { setSubmit(false) } }>Edit</button>
+              <button className="edit-button" type="submit" onClick={() => { setSubmit(false); }}>Edit</button>
             </div>
           </>
         ) : (
           <>
-            <form className="form-container" onSubmit={(e) => {e.preventDefault(), setSubmit(true)}} >
+            <form className="form-container" onSubmit={() => { setSubmit(true); }}>
               <div className="input-div">
                 <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" required />
                 <input type="text" value={position} onChange={(e) => setPosition(e.target.value)} placeholder="Position" required />
                 <input type="date" value={date} onChange={(e) => setDate(e.target.value)} placeholder="Date" required />
               </div>
-              <button className="submit-button" type='submit'>Submit</button>
+              <button className="submit-button" type="submit">Submit</button>
             </form>
           </>
         )}
       </div>
     </div>
   );
-}
+};
 
 export default GeneralInfo;
-

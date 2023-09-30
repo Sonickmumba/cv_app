@@ -1,7 +1,7 @@
-import React from 'react';
+// import React from 'react';
 
 const Header = () => (
-  <nav className='header-app-nav-wrapper'>
+  <nav className="header-app-nav-wrapper">
     <span>Hey you are welcome</span>
   </nav>
 );

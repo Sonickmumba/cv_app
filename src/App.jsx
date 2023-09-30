@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './App.css';
 import EducationExp from './components/educationExp/EducationExp';
 import GeneralInfo from './components/generalInfo/GeneralInfo';

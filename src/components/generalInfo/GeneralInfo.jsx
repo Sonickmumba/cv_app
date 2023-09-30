@@ -1,12 +1,43 @@
-import React, { useState } from 'react';
-// import styles from "./generalInfo.css?inline";
-import '../../App.css'
+import { useEffect, useState } from 'react';
+import '../../App.css';
 
 const GeneralInfo = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
   const [submit, setSubmit] = useState(true);
+
+  const [generalInfo, setGeneralInfo] = useState({
+    name: 'Sonick',
+    email: 'ke@gmail.com',
+    phoneNumber: '00000000',
+  });
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setGeneralInfo({
+      ...generalInfo,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newGeneralInfo = {
+      id: new Date().getTime(),
+      name: generalInfo.name,
+      email: generalInfo.email,
+      phoneNumber: generalInfo.phoneNumber,
+    };
+    localStorage.setItem('generalinform', JSON.stringify(newGeneralInfo));
+    setSubmit(true);
+  };
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem('generalinform')) || [];
+    if (data.length > 0) {
+      const latestData = data[data.length - 1];
+      setGeneralInfo(latestData);
+    }
+  }, [submit]);
 
   return (
     <div className="container">
@@ -14,30 +45,41 @@ const GeneralInfo = () => {
         {submit ? (
           <>
             <div className="display-main-container">
-            <p className="title-p">General Information</p>
-              <div className="display-div">
-                <div id="info">Name: {name}</div>
-                <div className="info">Email: {email}</div>
-                <div className="info">Phone: {phoneNumber}</div>
+              <p className="title-p">General Information</p>
+
+              <div className="display-div" key={generalInfo.id}>
+                <div id="info">
+                  Name:
+                  {generalInfo.name}
+                </div>
+                <div className="info">
+                  Email:
+                  {generalInfo.email}
+                </div>
+                <div className="info">
+                  Phone:
+                  {generalInfo.phoneNumber}
+                </div>
               </div>
-              <button className="edit-button" type='submit' onClick={() => { setSubmit(false) } }>Edit</button>
+
+              <button className="edit-button" type="submit" onClick={() => { setSubmit(false); }}>Edit</button>
             </div>
           </>
         ) : (
           <>
-            <form className="form-container" onSubmit={(e) => {e.preventDefault(), setSubmit(true)}} >
+            <form className="form-container" onSubmit={handleSubmit}>
               <div className="input-div">
-                <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
-                <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}  required />
-                <input type="number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} required />
+                <input type="text" name="name" value={generalInfo.name} onChange={handleChange} required />
+                <input type="text" name="email" value={generalInfo.email} onChange={handleChange} required />
+                <input type="number" name="phoneNumber" value={generalInfo.phoneNumber} onChange={handleChange} required />
               </div>
-              <button className="submit-button" type='submit'>Submit</button>
+              <button className="submit-button" type="submit" onClick={() => { setSubmit(false); }}>Submit</button>
             </form>
           </>
         )}
       </div>
     </div>
   );
-}
+};
 
 export default GeneralInfo;
