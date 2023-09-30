@@ -14,6 +14,7 @@ const GeneralInfo = () => {
         {submit ? (
           <>
             <div className="display-main-container">
+            <p className="title-p">General Information</p>
               <div className="display-div">
                 <div id="info">Name: {name}</div>
                 <div className="info">Email: {email}</div>

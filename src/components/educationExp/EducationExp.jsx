@@ -16,6 +16,7 @@ const EducationExp = () => {
               <><p>No Entries yet!!</p><button className="edit-button" type='submit' onClick={() => { setSubmit(false); } }>Edit</button></>
             ):(
             <div className="display-main-container">
+              <p className="title-p">Educational Information</p>
               <div className="display-div">
                 <div id="info">School: {schoolName}</div>
                 <div className="info">Programme: {titleStudy}</div>
