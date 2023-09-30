@@ -38,7 +38,6 @@ const GeneralInfo = () => {
       setGeneralInfo(latestData);
     }
   }, [submit]);
-  console.log(generalInfo);
   return (
     <div className="container">
       <div className="info-section">

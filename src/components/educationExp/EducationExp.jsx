@@ -38,7 +38,6 @@ const EducationExp = () => {
       setEducationExp(latestData);
     }
   }, [submits]);
-  console.log(educationExp);
   return (
     <div className="container">
       <div className="info-section">
