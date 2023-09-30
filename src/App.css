@@ -9,7 +9,6 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-
 /* Default styles for all screen sizes */
 .container {
   width: 90%;
@@ -104,7 +103,6 @@ input {
   .container {
     padding: 10px;
   }
-
 }
 
 @media only screen and (min-width: 1025px) {
@@ -126,5 +124,4 @@ input {
     width: 60%;
     margin: 0 auto;
   }
-
 }
