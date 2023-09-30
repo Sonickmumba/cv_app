@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import styles from "./generalInfo.css?inline";
 import '../../App.css'
 
 const GeneralInfo = () => {
