@@ -12,8 +12,8 @@ function App() {
     <>
       <div className="card">
         {/* <Header /> */}
-        <EducationExp />
         <GeneralInfo />
+        <EducationExp />
         <PracticalExp />
       </div>
     </>
