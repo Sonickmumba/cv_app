@@ -1,52 +1,77 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../../App.css';
 
 const EducationExp = () => {
-  const [schoolName, setSchoolName] = useState('');
-  const [date, setDate] = useState('');
-  const [titleStudy, setTitleStudy] = useState('');
-  const [submit, setSubmit] = useState(true);
+  const [submits, setSubmits] = useState(true);
 
+  const [educationExp, setEducationExp] = useState({
+    schoolName: 'Mano',
+    titleStudy: 'Maths',
+    date: '2007-07-20',
+  });
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setEducationExp({
+      ...educationExp,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newEducationInfo = {
+      id: new Date().getTime(),
+      schoolName: educationExp.schoolName,
+      titleStudy: educationExp.titleStudy,
+      date: educationExp.date,
+    };
+    localStorage.setItem('educationInfo', JSON.stringify(newEducationInfo));
+    setSubmits(true);
+  };
+  
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem('educationInfo')) || [];
+    if (data.length > 0) {
+      const latestData = data[data.length - 1];
+      setEducationExp(latestData);
+    }
+  }, [submits]);
+  console.log(educationExp);
   return (
     <div className="container">
       <div className="info-section">
-        {submit ? (
+        {submits ? (
           <>
-            {!schoolName && !date && !titleStudy ? (
-              <>
-                <p>No Entries yet!!</p>
-                <button className="edit-button" type="submit" onClick={() => { setSubmit(false); }}>Edit</button>
-              </>
-            ) : (
               <div className="display-main-container">
                 <p className="title-p">Educational Information</p>
-                <div className="display-div">
+                <div className="display-div" key={educationExp.id}>
                   <div id="info">
                     School:
-                    {schoolName}
+                    {educationExp.schoolName}
                   </div>
                   <div className="info">
                     Programme:
-                    {titleStudy}
+                    {educationExp.titleStudy}
                   </div>
                   <div className="info">
                     Date:
-                    {date}
+                    {educationExp.date}
                   </div>
                 </div>
-                <button className="edit-button" type="submit" onClick={() => { setSubmit(false); }}>Edit</button>
+                <button className="edit-button" type="submit" onClick={() => { setSubmits(false) }}>Edit</button>
               </div>
-            )}
           </>
         ) : (
           <>
-            <form className="form-container" onSubmit={() => { setSubmit(true); }}>
+            <form className="form-container" onSubmit={handleSubmit}>
               <div className="input-div">
-                <input type="text" value={schoolName} onChange={(e) => setSchoolName(e.target.value)} placeholder="School Name" required />
-                <input type="text" value={titleStudy} onChange={(e) => setTitleStudy(e.target.value)} placeholder="Study Title" required />
-                <input type="date" value={date} onChange={(e) => setDate(e.target.value)} placeholder="Date" required />
+                <input type="text" name="schoolName" value={educationExp.schoolName} onChange={handleChange} required />
+                <input type="text" name="titleStudy" value={educationExp.titleStudy} onChange={handleChange} required />
+                <input type="date" name="date" value={educationExp.date} onChange={handleChange} required />
               </div>
-              <button className="submit-button" type="submit">Submit</button>
+              <button className="submit-button" type="submit" onClick={() => { setSubmits(false) }}>Submit</button>
             </form>
           </>
         )}
