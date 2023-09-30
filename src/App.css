@@ -4,5 +4,130 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
-  width: 100%;
+  width: 90%;
+  /* height: 50vh; */
+  /* margin-top: 40px; */
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Default styles for all screen sizes */
+.container {
+  width: 90%;
+  max-width: 1200px; /* Adjust the maximum width as needed */
+  margin: 0 auto; /* Center the container */
+}
+
+.info-section {
+  background-color: #f0f0f0; /* Example background color */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.display-main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.display-div {
+  flex-grow: 1;
+  width: 300px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.display-div div {
+  font-size: 1.5rem;
+  border: 2px solid gray;
+  padding: 4px;
+  /* text-align: center; */
+  border-radius: 8px;
+  width: 80%;
+}
+
+.info {
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.edit-button {
+  background-color: #4caf50; /* Example button color */
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 80px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-div {
+  margin-bottom: 15px;
+}
+
+input {
+  width:92.5%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: 0;
+}
+
+.submit-button {
+  background-color: #008CBA; /* Example button color */
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Media queries for different screen sizes */
+
+@media only screen and (max-width: 600px) {
+  /* Styles for screens up to 600px wide */
+  .info-section {
+    padding: 10px;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  /* Styles for screens between 601px and 1024px wide */
+  .container {
+    padding: 10px;
+  }
+
+}
+
+@media only screen and (min-width: 1025px) {
+  /* Styles for screens wider than 1024px */
+  .container {
+    padding: 20px;
+    width: 80%;
+  }
+
+  .info-section {
+    margin: 20px 0;
+    padding: 20px;
+  }
+
+  .card {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap: 15px;
+    width: 60%;
+    margin: 0 auto;
+  }
+
 }

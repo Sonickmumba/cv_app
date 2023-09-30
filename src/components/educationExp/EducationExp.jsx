@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../../App.css'
 
 const EducationExp = () => {
   const [schoolName, setSchoolName] = useState('');
@@ -13,9 +14,9 @@ const EducationExp = () => {
           <>
             <div className="display-main-container">
               <div className="display-div">
-                <div>{schoolName}</div>
-                <div>{titleStudy}</div>
-                <div>{date}</div>
+                <div id="info">{schoolName}</div>
+                <div className="info">{titleStudy}</div>
+                <div className="info">{date}</div>
               </div>
               <button className="edit-button" type='submit' onClick={() => { setSubmit(false) } }>Edit</button>
             </div>

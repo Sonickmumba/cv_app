@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './generalInfo.css'
+// import styles from "./generalInfo.css?inline";
+import '../../App.css'
 
 const GeneralInfo = () => {
   const [name, setName] = useState('');
@@ -14,9 +15,9 @@ const GeneralInfo = () => {
           <>
             <div className="display-main-container">
               <div className="display-div">
-                <div>{name}</div>
-                <div>{email}</div>
-                <div>{phoneNumber}</div>
+                <div id="info">{name}</div>
+                <div className="info">{email}</div>
+                <div className="info">{phoneNumber}</div>
               </div>
               <button className="edit-button" type='submit' onClick={() => { setSubmit(false) } }>Edit</button>
             </div>
