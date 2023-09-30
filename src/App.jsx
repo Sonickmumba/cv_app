@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import EducationExp from './components/educationExp/EducationExp';
 import GeneralInfo from './components/generalInfo/GeneralInfo';
-// import PracticalExp from './components/PracticalExp';
+import PracticalExp from './components/practicalExp/PracticalExp';
 // import Header from './components/Header';
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
         {/* <Header /> */}
         <EducationExp />
         <GeneralInfo />
-        {/* <PracticalExp /> */}
+        <PracticalExp />
       </div>
     </>
   );

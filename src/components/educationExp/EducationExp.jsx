@@ -17,9 +17,9 @@ const EducationExp = () => {
             ):(
             <div className="display-main-container">
               <div className="display-div">
-                <div id="info">{schoolName}</div>
-                <div className="info">{titleStudy}</div>
-                <div className="info">{date}</div>
+                <div id="info">School: {schoolName}</div>
+                <div className="info">Programme: {titleStudy}</div>
+                <div className="info">Date: {date}</div>
               </div>
               <button className="edit-button" type='submit' onClick={() => { setSubmit(false) } }>Edit</button>
             </div>
