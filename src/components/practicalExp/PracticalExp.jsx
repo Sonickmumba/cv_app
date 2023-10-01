@@ -47,17 +47,17 @@ const EducationExp = () => {
             <div className="display-main-container">
               <p className="title-p">Practical Information</p>
               <div className="display-div" key={practicalExp.id}>
-                <div id="info">
-                  Name:
-                  {practicalExp.name}
+                <div className="info">
+                  Name: {" "}
+                  <span className='span-ta'>{practicalExp.name}</span>
                 </div>
                 <div className="info">
-                  Position:
-                  {practicalExp.position}
+                  Position: {" "}
+                  <span className='span-ta'>{practicalExp.position}</span>
                 </div>
                 <div className="info">
-                  Date:
-                  {practicalExp.date}
+                  Date: {" "}
+                  <span className='span-ta'>{practicalExp.date}</span>
                 </div>
               </div>
               <button className="edit-button" type="submit" onClick={() => { setSubmits(false) }}>Edit</button>
@@ -65,6 +65,7 @@ const EducationExp = () => {
           </>
         ) : (
           <>
+            <p className="title-p">Practical Information</p>
             <form className="form-container" onSubmit={handleSubmit}>
               <div className="input-div">
                 <input type="text" name="name" value={practicalExp.name} onChange={handleChange} required />

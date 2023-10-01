@@ -47,17 +47,17 @@ const GeneralInfo = () => {
               <p className="title-p">General Information</p>
 
               <div className="display-div" key={generalInfo.id}>
-                <div id="info">
-                  Name:
-                  {generalInfo.name}
+                <div className="info">
+                  Name: {" "}
+                  <span className="span-ta">{generalInfo.name}</span>
                 </div>
                 <div className="info">
-                  Email:
-                  {generalInfo.email}
+                  Email: {" "}
+                  <span className="span-ta">{generalInfo.email}</span>
                 </div>
                 <div className="info">
-                  Phone:
-                  {generalInfo.phoneNumber}
+                  Phone: {" "}
+                  <span className="span-ta">{generalInfo.phoneNumber}</span>
                 </div>
               </div>
 
@@ -66,6 +66,7 @@ const GeneralInfo = () => {
           </>
         ) : (
           <>
+            <p className="title-p">General Information</p>
             <form className="form-container" onSubmit={handleSubmit}>
               <div className="input-div">
                 <input type="text" name="name" value={generalInfo.name} onChange={handleChange} required />

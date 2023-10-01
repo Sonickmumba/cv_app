@@ -2,7 +2,7 @@
 
 const Header = () => (
   <nav className="header-app-nav-wrapper">
-    <span>Hey you are welcome</span>
+    <div className="header">CV Application from Odin Projects</div>
   </nav>
 );
 
