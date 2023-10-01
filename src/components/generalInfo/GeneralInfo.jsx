@@ -5,8 +5,8 @@ const GeneralInfo = () => {
   const [submit, setSubmit] = useState(true);
 
   const [generalInfo, setGeneralInfo] = useState({
-    name: 'Sonick',
-    email: 'k@gmail.com',
+    name: 'Sonicpk',
+    email: 'k@gl.com',
     phoneNumber: '00000000',
   });
 
