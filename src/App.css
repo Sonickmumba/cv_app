@@ -199,6 +199,6 @@ input {
 @media only screen and (min-width: 2396px) {
   /* Styles for screens wider than 1459px */
   .card {
-    grid-template-columns: repeat(auto-fill,minmax(600px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
   }
 }
