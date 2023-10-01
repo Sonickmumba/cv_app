@@ -6,7 +6,7 @@ const GeneralInfo = () => {
 
   const [generalInfo, setGeneralInfo] = useState({
     name: 'Sonick',
-    email: 'ke@gmail.com',
+    email: 'k@gmail.com',
     phoneNumber: '00000000',
   });
 
